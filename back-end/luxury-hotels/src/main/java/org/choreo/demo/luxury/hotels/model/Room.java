@@ -1,19 +1,16 @@
 package org.choreo.demo.luxury.hotels.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
-@Table(name = "Room")
+@Table(name = "room")
 public class Room {
     @Id
+    @Column(name = "number")
     private int number;
 
     @ManyToOne
-    @JoinColumn(name = "typeId")
+    @JoinColumn(name = "type_id")
     private RoomType type;
 
     // Constructors, getters, and setters
@@ -33,5 +30,13 @@ public class Room {
 
     public void setType(RoomType type) {
         this.type = type;
+    }
+
+    @Override
+    public String toString() {
+        return "Room{" +
+                "number=" + number +
+                ", type=" + type +
+                '}';
     }
 }

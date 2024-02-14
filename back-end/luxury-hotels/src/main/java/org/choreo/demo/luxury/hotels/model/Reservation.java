@@ -1,30 +1,28 @@
 package org.choreo.demo.luxury.hotels.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "Reservation")
+@Table(name = "reservation")
 public class Reservation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private int id;
 
     @ManyToOne
-    @JoinColumn(name = "roomNumber")
+    @JoinColumn(name = "room_number")
     private Room room;
 
+    @Column(name = "checkin_date")
     private LocalDate checkinDate;
+    @Column(name = "checkout_date")
     private LocalDate checkoutDate;
 
     @ManyToOne
-    @JoinColumn(name = "userId")
+    @JoinColumn(name = "user_id")
     private User user;
 
     public int getId() {
@@ -65,6 +63,17 @@ public class Reservation {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    @Override
+    public String toString() {
+        return "Reservation{" +
+                "id=" + id +
+                ", room=" + room +
+                ", checkinDate=" + checkinDate +
+                ", checkoutDate=" + checkoutDate +
+                ", user=" + user +
+                '}';
     }
 
     // Constructors, getters, and setters

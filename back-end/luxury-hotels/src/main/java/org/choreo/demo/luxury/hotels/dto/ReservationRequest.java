@@ -1,13 +1,11 @@
 package org.choreo.demo.luxury.hotels.dto;
 
 
-import org.choreo.demo.luxury.hotels.model.User;
-
 public class ReservationRequest {
     String checkinDate;
     String checkoutDate;
     String roomType;
-    User user;
+    UserDto user;
     double rate;
 
     public String getCheckinDate() {
@@ -34,11 +32,11 @@ public class ReservationRequest {
         this.roomType = roomType;
     }
 
-    public User getUser() {
+    public UserDto getUser() {
         return user;
     }
 
-    public void setUser(User user) {
+    public void setUser(UserDto user) {
         this.user = user;
     }
 

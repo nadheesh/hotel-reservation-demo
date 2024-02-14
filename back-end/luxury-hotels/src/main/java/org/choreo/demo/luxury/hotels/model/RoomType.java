@@ -1,20 +1,26 @@
 package org.choreo.demo.luxury.hotels.model;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "RoomType")
+@Table(name = "room_type")
 public class RoomType {
     @Id
+    @Column(name = "id")
     private int id;
+    @Column(name = "name")
     private String name;
+    @Column(name = "guest_capacity")
     private int guestCapacity;
+    @Column(name = "price")
     private double price;
 
     // Constructors, getters, and setters
-    public RoomType() {}
+    public RoomType() {
+    }
 
     public RoomType(int id, String name, int guestCapacity, double price) {
         this.id = id;
@@ -54,5 +60,16 @@ public class RoomType {
     public void setPrice(double price) {
         this.price = price;
     }
-// Getters and setters...
+
+    @Override
+    public String toString() {
+        return "RoomType{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", guestCapacity=" + guestCapacity +
+                ", price=" + price +
+                '}';
+    }
+
+    // Getters and setters...
 }
